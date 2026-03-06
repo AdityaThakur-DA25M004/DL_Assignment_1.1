@@ -2,15 +2,15 @@
     "input_size": 784,
     "hidden_sizes": [
         128,
-        64,
         32
     ],
     "output_size": 10,
-    "activation": "sigmoid",
-    "loss": "mse",
+    "activation": "tanh",
+    "loss": "cross_entropy",
     "weight_init": "xavier",
-    "optimizer": "nadam",
-    "learning_rate": 0.000645274115904122,
-    "weight_decay": 0.0,
-    "gradient_clip": 1.0
+    "optimizer": "rmsprop",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.002,
+    "gradient_clip": 5.0,
+    "dataset": "mnist"
 }
