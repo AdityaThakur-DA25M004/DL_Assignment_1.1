@@ -1,0 +1,784 @@
+2026-03-07 03:02:35,707 INFO    MainThread:29432 [wandb_setup.py:_flush():81] Current SDK version is 0.25.0
+2026-03-07 03:02:35,707 INFO    MainThread:29432 [wandb_setup.py:_flush():81] Configure stats pid to 29432
+2026-03-07 03:02:35,707 INFO    MainThread:29432 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-03-07 03:02:35,707 INFO    MainThread:29432 [wandb_init.py:setup_run_log_directory():717] Logging user logs to C:\Users\thaku\ClassRoom Assignments\DL_ass\src\wandb\run-20260307_030235-rkht72d3\logs\debug.log
+2026-03-07 03:02:35,707 INFO    MainThread:29432 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to C:\Users\thaku\ClassRoom Assignments\DL_ass\src\wandb\run-20260307_030235-rkht72d3\logs\debug-internal.log
+2026-03-07 03:02:35,708 INFO    MainThread:29432 [wandb_init.py:init():844] calling init triggers
+2026-03-07 03:02:35,708 INFO    MainThread:29432 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'dataset': 'mnist', 'epochs': 1, 'batch_size': 64, 'loss': 'cross_entropy', 'optimizer': 'adam', 'learning_rate': 0.001, 'weight_decay': 0.0001, 'num_layers': 2, 'hidden_size': [128, 64], 'activation': 'relu', 'weight_init': 'xavier', 'wandb_project': 'da6401-assignment1', 'wandb_entity': None, 'wandb_run_name': '2.1_data_exploration_mnist', 'gradient_clip': 5.0, 'no_wandb': False, 'log_images': True, 'log_gradients': False, 'log_dead_neurons': False, 'log_symmetry': False, 'log_confusion': False, '_wandb': {}}
+2026-03-07 03:02:35,708 INFO    MainThread:29432 [wandb_init.py:init():892] starting backend
+2026-03-07 03:02:38,003 INFO    MainThread:29432 [wandb_init.py:init():895] sending inform_init request
+2026-03-07 03:02:38,032 INFO    MainThread:29432 [wandb_init.py:init():903] backend started and connected
+2026-03-07 03:02:38,061 INFO    MainThread:29432 [wandb_init.py:init():973] updated telemetry
+2026-03-07 03:02:38,094 INFO    MainThread:29432 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-03-07 03:02:39,020 INFO    MainThread:29432 [wandb_init.py:init():1042] starting run threads in backend
+2026-03-07 03:02:39,086 INFO    MainThread:29432 [wandb_run.py:_console_start():2524] atexit reg
+2026-03-07 03:02:39,086 INFO    MainThread:29432 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-03-07 03:02:39,086 INFO    MainThread:29432 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-03-07 03:02:39,086 INFO    MainThread:29432 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-03-07 03:02:39,089 INFO    MainThread:29432 [wandb_init.py:init():1082] run started, returning control to user process
+2026-03-07 03:02:49,603 INFO    wandb-AsyncioManager-main:29432 [service_client.py:_forward_responses():134] Reached EOF.
+2026-03-07 03:02:49,603 INFO    wandb-AsyncioManager-main:29432 [mailbox.py:close():155] Closing mailbox, abandoning 2 handles.
+2026-03-07 03:02:55,747 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,787 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,789 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,790 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,790 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,790 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,791 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,791 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,792 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,792 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,792 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,793 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,793 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,793 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,794 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,794 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,795 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,795 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,796 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,796 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,796 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,797 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,797 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,797 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,798 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,798 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,798 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,799 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,799 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,800 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,800 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,800 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,801 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,801 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,802 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,802 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,802 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,802 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,803 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,803 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,805 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,806 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,806 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,807 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+2026-03-07 03:02:55,807 ERROR   wandb-AsyncioManager-main:29432 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "C:\Users\thaku\AppData\Local\Programs\Python\Python311\Lib\asyncio\streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost

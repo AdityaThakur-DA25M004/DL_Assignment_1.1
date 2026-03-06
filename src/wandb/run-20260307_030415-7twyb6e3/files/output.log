@@ -1,0 +1,10 @@
+Dataset: mnist | Train: 54000 | Val: 6000 | Test: 10000
+Train: (54000, 784)  Val: (6000, 784)  Test: (10000, 784)
+  [W&B] Logged sample image table.
+Architecture: 784 → [128, 64] → 10
+Optimizer: adam  LR: 0.001  Loss: cross_entropy
+Epoch   1/1 | loss=0.2986 | train_acc=0.9571 | val_acc=0.9483 | val_f1=0.9483 | test_acc=0.9540 | test_f1=0.9537
+
+Best test F1 = 0.9537
+Saved weights → C:\Users\thaku\ClassRoom Assignments\DL_ass\src\best_model.npy
+Saved config  → C:\Users\thaku\ClassRoom Assignments\DL_ass\src\best_config.json

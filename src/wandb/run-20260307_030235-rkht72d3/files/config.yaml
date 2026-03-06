@@ -1,0 +1,131 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            b3xxrgu04rhcw4uzot5m2045s2j5v3bv:
+                args:
+                    - -d
+                    - mnist
+                    - -e
+                    - "1"
+                    - -b
+                    - "64"
+                    - -l
+                    - cross_entropy
+                    - -o
+                    - adam
+                    - -lr
+                    - "0.001"
+                    - -wd
+                    - "1e-4"
+                    - -nhl
+                    - "2"
+                    - -sz
+                    - "128"
+                    - "64"
+                    - -a
+                    - relu
+                    - -w_i
+                    - xavier
+                    - --wandb_run_name
+                    - 2.1_data_exploration_mnist
+                    - --log_images
+                    - -w_p
+                    - da6401-assignment1
+                codePath: src\train.py
+                codePathLocal: train.py
+                cpu_count: 16
+                cpu_count_logical: 24
+                cudaVersion: "12.9"
+                disk:
+                    /:
+                        total: "1022836600832"
+                        used: "953370263552"
+                email: da25m004@smail.iitm.ac.in
+                executable: C:\Users\thaku\ClassRoom Assignments\DL_Assignment-1\dl_env\Scripts\python.exe
+                git:
+                    commit: 138b8f7e96923c0662e2386a37c73d4419be2955
+                    remote: https://github.com/AdityaThakur-DA25M004/DL_Assignment_1.1.git
+                gpu: NVIDIA GeForce RTX 4050 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 2560
+                      memoryTotal: "6439305216"
+                      name: NVIDIA GeForce RTX 4050 Laptop GPU
+                      uuid: GPU-b6db2ac1-5edf-4d89-f30f-11c4f0c20901
+                host: Eddy87
+                memory:
+                    total: "16886128640"
+                os: Windows-10-10.0.26200-SP0
+                program: C:\Users\thaku\ClassRoom Assignments\DL_ass\src\train.py
+                python: CPython 3.11.9
+                root: C:\Users\thaku\ClassRoom Assignments\DL_ass\src
+                startedAt: "2026-03-06T21:32:35.702732Z"
+                writerId: b3xxrgu04rhcw4uzot5m2045s2j5v3bv
+        m: []
+        python_version: 3.11.9
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 2
+                - 3
+                - 5
+                - 53
+            "3":
+                - 13
+                - 16
+            "4": 3.11.9
+            "5": 0.25.0
+            "8":
+                - 3
+            "10":
+                - 20
+            "12": 0.25.0
+            "13": windows-amd64
+activation:
+    value: relu
+batch_size:
+    value: 64
+dataset:
+    value: mnist
+epochs:
+    value: 1
+gradient_clip:
+    value: 5
+hidden_size:
+    value:
+        - 128
+        - 64
+learning_rate:
+    value: 0.001
+log_confusion:
+    value: false
+log_dead_neurons:
+    value: false
+log_gradients:
+    value: false
+log_images:
+    value: true
+log_symmetry:
+    value: false
+loss:
+    value: cross_entropy
+no_wandb:
+    value: false
+num_layers:
+    value: 2
+optimizer:
+    value: adam
+wandb_entity:
+    value: null
+wandb_project:
+    value: da6401-assignment1
+wandb_run_name:
+    value: 2.1_data_exploration_mnist
+weight_decay:
+    value: 0.0001
+weight_init:
+    value: xavier

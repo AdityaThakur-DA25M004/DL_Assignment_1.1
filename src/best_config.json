@@ -9,9 +9,9 @@
     "activation": "relu",
     "loss": "cross_entropy",
     "weight_init": "xavier",
-    "optimizer": "adam",
-    "learning_rate": 0.001,
+    "optimizer": "sgd",
+    "learning_rate": 0.01,
     "weight_decay": 0.0,
-    "gradient_clip": 5.0,
+    "gradient_clip": 0.0,
     "dataset": "mnist"
 }

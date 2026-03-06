@@ -2,16 +2,15 @@
     "input_size": 784,
     "hidden_sizes": [
         128,
-        128,
-        128
+        64,
+        32
     ],
     "output_size": 10,
-    "activation": "relu",
-    "loss": "cross_entropy",
+    "activation": "sigmoid",
+    "loss": "mse",
     "weight_init": "xavier",
-    "optimizer": "adam",
-    "learning_rate": 0.001,
+    "optimizer": "nadam",
+    "learning_rate": 0.000645274115904122,
     "weight_decay": 0.0,
-    "gradient_clip": 5.0,
-    "dataset": "mnist"
+    "gradient_clip": 1.0
 }

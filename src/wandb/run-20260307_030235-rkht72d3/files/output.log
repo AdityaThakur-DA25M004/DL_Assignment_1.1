@@ -1,0 +1,23 @@
+Dataset: mnist | Train: 54000 | Val: 6000 | Test: 10000
+Train: (54000, 784)  Val: (6000, 784)  Test: (10000, 784)
+  [W&B] Logged sample image table.
+Architecture: 784 → [128, 64] → 10
+Optimizer: adam  LR: 0.001  Loss: cross_entropy
+Traceback (most recent call last):
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\train.py", line 314, in <module>
+    main()
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\train.py", line 240, in main
+    history    = model.train(x_train, y_train, epochs=1, batch_size=args.batch_size)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\ann\neural_network.py", line 274, in train
+    self.train_step(x_train[batch], y_train[batch])
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\ann\neural_network.py", line 207, in train_step
+    logits = self.forward(X)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\ann\neural_network.py", line 122, in forward
+    A = self.activations[i].forward(Z) if i < len(self.activations) else Z
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\thaku\ClassRoom Assignments\DL_ass\src\ann\activations.py", line 41, in forward
+    def forward(self, Z):
+
+KeyboardInterrupt
