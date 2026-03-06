@@ -33,16 +33,15 @@ from utils.metrics       import compute_all_metrics
 # Hardcoded best-model defaults  ← UPDATE THESE after every training run
 # These are the defaults used if best_config.json is not found
 # ---------------------------------------------------------------------------
-_BEST_HIDDEN_SIZE   = [128, 64]    # your best model: 2 layers
-_BEST_NUM_LAYERS    = 3
-_BEST_ACTIVATION    = "sigmoid"
-_BEST_OPTIMIZER     = "nadam"
-_BEST_LR            = .000645274115904122
+_BEST_HIDDEN_SIZE   = [128, 64]   # best model: 2 hidden layers
+_BEST_NUM_LAYERS    = 2
+_BEST_ACTIVATION    = "relu"
+_BEST_OPTIMIZER     = "adam"
+_BEST_LR            = 0.001
 _BEST_WD            = 0.0
 _BEST_WEIGHT_INIT   = "xavier"
-_BEST_LOSS          = "mse"
+_BEST_LOSS          = "cross_entropy"
 _BEST_DATASET       = "mnist"
-
 
 def build_parser():
     p = argparse.ArgumentParser(description="Inference for DA6401 Assignment-1 MLP")
