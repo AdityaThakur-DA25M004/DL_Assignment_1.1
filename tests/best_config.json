@@ -1,0 +1,15 @@
+{
+    "input_size": 784,
+    "hidden_sizes": [
+        64,
+        32
+    ],
+    "output_size": 10,
+    "activation": "relu",
+    "loss": "cross_entropy",
+    "weight_init": "xavier",
+    "optimizer": "nag",
+    "learning_rate": 0.0018356990094339008,
+    "weight_decay": 0.0,
+    "gradient_clip": 1.0
+}
