@@ -30,11 +30,11 @@ class NeuralNetwork:
     def __init__(self, cli_args=None, **kwargs):
         import argparse
 
-        # Support both NeuralNetwork(cli_args) and NeuralNetwork(input_size=...) styles
+        # Support both NeuralNetwork(cli_args) and NeuralNetwork(input_size=...)
         if cli_args is not None and isinstance(cli_args, argparse.Namespace):
             ns = cli_args
         elif cli_args is not None and not isinstance(cli_args, argparse.Namespace):
-            # Treat cli_args as input_size (legacy positional call)
+            # Treat cli_args as input_size
             ns = argparse.Namespace(
                 input_size=cli_args,
                 hidden_size=kwargs.get("hidden_sizes", kwargs.get("hidden_size", [128])),
@@ -108,7 +108,7 @@ class NeuralNetwork:
         self.activation_stats = {i: [] for i in range(len(self.layers))}
 
     # ------------------------------------------------------------------
-    # Forward — returns raw logits (no softmax applied)
+    # Forward — returns raw logits 
     # ------------------------------------------------------------------
     def forward(self, X):
         """
@@ -125,14 +125,6 @@ class NeuralNetwork:
 
     # ------------------------------------------------------------------
     # Backward
-    #
-    # y_true : integer labels (N,) OR one-hot (N, C)
-    # y_pred : raw logits from forward()
-    #
-    # Returns: (grad_W, grad_b) — numpy object arrays
-    #   index 0  = output layer
-    #   index 1  = last hidden layer
-    #   index -1 = first hidden layer
     # ------------------------------------------------------------------
     def backward(self, y_true, y_pred):
         """
@@ -339,9 +331,13 @@ class NeuralNetwork:
         self.set_weights(np.load(filepath, allow_pickle=True).item())
 
     def get_config(self):
+        # Save BOTH key names so any version of inference.py can read it:
+        #   "hidden_sizes" (plural)  — current code
+        #   "hidden_size"  (singular) — older inference.py / autograder variants
         return {
             "input_size":    self.input_size,
-            "hidden_sizes":  self.hidden_sizes,
+            "hidden_sizes":  self.hidden_sizes,   # plural  (primary)
+            "hidden_size":   self.hidden_sizes,   # singular (compatibility alias)
             "output_size":   self.output_size,
             "activation":    self.activation_name,
             "loss":          self.loss_name,
@@ -373,12 +369,19 @@ class NeuralNetwork:
         return A
 
     def get_dead_neurons(self, X, threshold: float = 0.01):
+        """
+        ReLU  → dead neuron   : activation rate < threshold (neuron always outputs 0)
+        Tanh  → saturated neuron : mean |output| > 0.99 (gradient ≈ 0, neuron stuck at ±1)
+        Both are logged so W&B plots appear for all activation types.
+        """
         dead_info = {}
         A = X
         for idx, (layer, act) in enumerate(zip(self.layers[:-1], self.activations)):
-            Z = layer.forward(A)
-            A = act.forward(Z)
-            if act.get_name().lower() == "relu":
+            Z    = layer.forward(A)
+            A    = act.forward(Z)
+            name = act.get_name().lower()
+
+            if name == "relu":
                 activation_rate = np.sum(A > 0, axis=0) / A.shape[0]
                 dead_neurons    = np.where(activation_rate < threshold)[0]
                 dead_info[idx]  = {
@@ -386,4 +389,29 @@ class NeuralNetwork:
                     "num_dead":         len(dead_neurons),
                     "activation_rates": activation_rate.tolist(),
                 }
+
+            elif name == "tanh":
+                # Saturated = mean |output| > 0.99  →  gradient (1 - tanh²) ≈ 0
+                mean_abs        = np.mean(np.abs(A), axis=0)          # (neurons,)
+                sat_neurons     = np.where(mean_abs > 0.99)[0]
+                # Also compute an "activation rate" equivalent: fraction of inputs
+                # that push the neuron into the near-linear zone (|output| < 0.9)
+                activation_rate = np.sum(np.abs(A) < 0.9, axis=0) / A.shape[0]
+                dead_info[idx]  = {
+                    "dead_neurons":     sat_neurons.tolist(),   # re-use key for compatibility
+                    "num_dead":         len(sat_neurons),
+                    "activation_rates": activation_rate.tolist(),
+                }
+
+            elif name == "sigmoid":
+                # Saturated = mean output outside (0.05, 0.95)
+                mean_out    = np.mean(A, axis=0)
+                sat_neurons = np.where((mean_out < 0.05) | (mean_out > 0.95))[0]
+                activation_rate = np.sum((A > 0.05) & (A < 0.95), axis=0) / A.shape[0]
+                dead_info[idx] = {
+                    "dead_neurons":     sat_neurons.tolist(),
+                    "num_dead":         len(sat_neurons),
+                    "activation_rates": activation_rate.tolist(),
+                }
+
         return dead_info

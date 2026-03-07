@@ -27,11 +27,6 @@ for _p in [_THIS_DIR, _ROOT_DIR]:
 from ann.neural_network import NeuralNetwork
 from utils.data_loader   import load_data
 from utils.metrics       import compute_all_metrics
-
-
-# ---------------------------------------------------------------------------
-# Hardcoded best-model defaults  ← UPDATE THESE after every training run
-# These are the defaults used if best_config.json is not found
 # ---------------------------------------------------------------------------
 _BEST_HIDDEN_SIZE   = [128, 64]   # best model: 2 hidden layers
 _BEST_NUM_LAYERS    = 2

@@ -11,3 +11,8 @@ Epoch   6/10 | loss=0.1444 | train_acc=0.9621 | val_acc=0.9547 | val_f1=0.9543 |
 Epoch   7/10 | loss=0.1288 | train_acc=0.9652 | val_acc=0.9565 | val_f1=0.9561 | test_acc=0.9579 | test_f1=0.9574
 Epoch   8/10 | loss=0.1162 | train_acc=0.9704 | val_acc=0.9622 | val_f1=0.9618 | test_acc=0.9627 | test_f1=0.9623
 Epoch   9/10 | loss=0.1046 | train_acc=0.9724 | val_acc=0.9637 | val_f1=0.9633 | test_acc=0.9648 | test_f1=0.9644
+Epoch  10/10 | loss=0.0952 | train_acc=0.9758 | val_acc=0.9662 | val_f1=0.9659 | test_acc=0.9665 | test_f1=0.9661
+
+Best test F1 = 0.9661
+Saved weights → C:\Users\thaku\ClassRoom Assignments\DL_ass\src\best_model.npy
+Saved config  → C:\Users\thaku\ClassRoom Assignments\DL_ass\src\best_config.json

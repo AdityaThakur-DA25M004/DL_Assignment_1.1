@@ -70,6 +70,8 @@ def build_parser():
                    help="Log per-layer gradient norms (Section 2.4)")
     p.add_argument("--log_dead_neurons",        action="store_true",
                    help="Log dead-neuron stats (Section 2.5)")
+    p.add_argument("--log_activations",         action="store_true",
+                   help="Log activation distributions + histograms (Section 2.5)")
     p.add_argument("--log_symmetry",            action="store_true",
                    help="Log per-neuron gradients for symmetry analysis (Section 2.9)")
     p.add_argument("--log_confusion",           action="store_true",
@@ -120,12 +122,24 @@ def log_image_table(wandb, x_data, y_data, dataset_name, num_per_class=5):
 
 
 def log_confusion_matrix(wandb, y_true, y_pred, dataset_name):
-    """Section 2.8 — confusion matrix."""
+    """
+    Section 2.8 — Full error analysis with 3 visualizations:
+      1. Confusion Matrix (W&B built-in plot)
+      2. Misclassified Images Grid (W&B Table with images)
+      3. Top Confused Pairs Table (ranked by error count)
+    """
+    import numpy as _np
+
     if dataset_name == "mnist":
         class_names = [str(i) for i in range(10)]
     else:
         class_names = ["T-shirt", "Trouser", "Pullover", "Dress", "Coat",
                        "Sandal",  "Shirt",   "Sneaker",  "Bag",   "Ankle boot"]
+
+    y_true = _np.asarray(y_true).ravel().astype(int)
+    y_pred = _np.asarray(y_pred).ravel().astype(int)
+
+    # ── 1. Standard Confusion Matrix ─────────────────────────────────
     wandb.log({
         "error_analysis/confusion_matrix": wandb.plot.confusion_matrix(
             probs=None,
@@ -135,6 +149,78 @@ def log_confusion_matrix(wandb, y_true, y_pred, dataset_name):
         )
     })
     print("  [W&B] Logged confusion matrix.")
+
+    # ── 2. Misclassified Images Grid ─────────────────────────────────
+    # We need x_test to show images — store it as a module-level var
+    # set just before this function is called (see train loop below)
+    x_test_ref = getattr(log_confusion_matrix, "_x_test", None)
+    if x_test_ref is not None:
+        wrong_idx = _np.where(y_true != y_pred)[0]
+        # Pick up to 60 misclassified samples (6 per confused class pair, capped)
+        _np.random.shuffle(wrong_idx)
+        picks = wrong_idx[:60]
+
+        table = wandb.Table(columns=[
+            "image", "true_label", "true_name",
+            "pred_label", "pred_name", "confidence_note"
+        ])
+        for idx in picks:
+            pixel = (x_test_ref[idx].reshape(28, 28) * 255).astype(_np.uint8)
+            t, p  = int(y_true[idx]), int(y_pred[idx])
+            table.add_data(
+                wandb.Image(pixel),
+                t, class_names[t],
+                p, class_names[p],
+                f"{class_names[t]} → {class_names[p]}"
+            )
+        wandb.log({"error_analysis/misclassified_images": table})
+        print(f"  [W&B] Logged {len(picks)} misclassified images grid.")
+
+    # ── 3. Top Confused Pairs Table ───────────────────────────────────
+    # Build confusion matrix, extract off-diagonal errors, rank them
+    num_classes = len(class_names)
+    cm = _np.zeros((num_classes, num_classes), dtype=int)
+    for t, p in zip(y_true, y_pred):
+        cm[t, p] += 1
+
+    pairs = []
+    for t in range(num_classes):
+        for p in range(num_classes):
+            if t != p and cm[t, p] > 0:
+                pairs.append((cm[t, p], t, p))
+    pairs.sort(reverse=True)   # most confused first
+
+    pairs_table = wandb.Table(columns=[
+        "rank", "true_class", "predicted_as", "error_count",
+        "true_total", "error_rate_%"
+    ])
+    for rank, (count, t, p) in enumerate(pairs[:20], 1):   # top 20 pairs
+        true_total = int(cm[t, :].sum())
+        error_rate = round(count / true_total * 100, 1)
+        pairs_table.add_data(
+            rank,
+            f"{t} ({class_names[t]})",
+            f"{p} ({class_names[p]})",
+            count,
+            true_total,
+            error_rate,
+        )
+    wandb.log({"error_analysis/top_confused_pairs": pairs_table})
+    print("  [W&B] Logged top confused pairs table.")
+
+    # ── Summary stats ─────────────────────────────────────────────────
+    total_errors = int((y_true != y_pred).sum())
+    total        = len(y_true)
+    wandb.log({
+        "error_analysis/total_errors":   total_errors,
+        "error_analysis/error_rate_pct": round(total_errors / total * 100, 2),
+        "error_analysis/top1_confused_pair": (
+            f"{class_names[pairs[0][1]]}→{class_names[pairs[0][2]]}"
+            if pairs else "none"
+        ),
+    })
+    print(f"  [W&B] Total errors: {total_errors}/{total} "
+          f"({total_errors/total*100:.2f}%)")
 
 
 def log_gradient_norms(wandb, model, epoch):
@@ -147,7 +233,11 @@ def log_gradient_norms(wandb, model, epoch):
 
 
 def log_dead_neurons(wandb, model, x_sample, epoch):
-    """Section 2.5 — dead neuron counts per layer."""
+    """Section 2.5 — dead/saturated neuron counts per layer.
+    ReLU  → dead neurons (always output 0).
+    Tanh/Sigmoid → saturated neurons (gradient ≈ 0).
+    Both logged under same keys so W&B overlays them on one chart.
+    """
     dead_info = model.get_dead_neurons(x_sample[:512])
     log_dict  = {"epoch": epoch}
     for layer_idx, info in dead_info.items():
@@ -156,6 +246,40 @@ def log_dead_neurons(wandb, model, x_sample, epoch):
         log_dict[f"dead_neurons/layer_{layer_idx}_pct"]   = pct
     if len(log_dict) > 1:
         wandb.log(log_dict)
+
+
+def log_activation_distributions(wandb, model, x_sample, epoch):
+    """
+    Section 2.5 — activation distribution per hidden layer.
+
+    Logs per layer:
+      activations/layer_N_mean      — mean activation value
+      activations/layer_N_std       — std of activations
+      activations/layer_N_zero_pct  — % of activations that are exactly 0 (ReLU dead)
+      activations/layer_N_hist      — W&B Histogram of activation values
+      activations/layer_N_near_zero_pct — % of neurons with |mean_activation| < 0.01
+    """
+    X = x_sample[:256]   # use 256 samples for speed
+    A = X
+    log_dict = {"epoch": epoch}
+
+    for i, (layer, act) in enumerate(zip(model.layers[:-1], model.activations)):
+        Z = layer.forward(A)
+        A = act.forward(Z)
+
+        flat         = A.ravel()
+        mean_val     = float(np.mean(flat))
+        std_val      = float(np.std(flat))
+        zero_pct     = float(np.mean(flat == 0.0) * 100)        # exact zeros (ReLU dead)
+        near_zero_pct= float(np.mean(np.abs(flat) < 0.01) * 100) # near-zero
+
+        log_dict[f"activations/layer_{i}_mean"]          = mean_val
+        log_dict[f"activations/layer_{i}_std"]           = std_val
+        log_dict[f"activations/layer_{i}_zero_pct"]      = zero_pct
+        log_dict[f"activations/layer_{i}_near_zero_pct"] = near_zero_pct
+        log_dict[f"activations/layer_{i}_hist"]          = wandb.Histogram(flat)
+
+    wandb.log(log_dict)
 
 
 _symmetry_iter = [0]
@@ -278,6 +402,9 @@ def main():
             if args.log_dead_neurons:
                 log_dead_neurons(_wandb, model, x_train, epoch + 1)
 
+            if args.log_activations:
+                log_activation_distributions(_wandb, model, x_train, epoch + 1)
+
         # Track best checkpoint
         if test_m["f1"] > best_test_f1:
             best_test_f1    = test_m["f1"]
@@ -285,9 +412,10 @@ def main():
             best_config     = {**model.get_config(), "dataset": args.dataset}
             best_test_preds = test_preds.copy()
 
-    # --- Section 2.8: confusion matrix ---
+    # --- Section 2.8: confusion matrix + misclassified grid + confused pairs ---
     if use_wandb and args.log_confusion and best_test_preds is not None:
         import wandb as _wandb
+        log_confusion_matrix._x_test = x_test   # pass images for misclassified grid
         log_confusion_matrix(_wandb, y_test, best_test_preds, args.dataset)
 
     # --- Save best model ---
